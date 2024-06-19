@@ -1,4 +1,22 @@
 {
   "auto_play": true,
-  "theme": "001"
+  "delay_time": 5000,
+  "order_play": false,
+  "mode": "simple",
+  "theme": "001",
+  "themes": {
+    "001": {
+      "background-color": "black",
+      "font-color": "white"
+    },
+    "002": {
+      "background-color": "white",
+      "font-color": "black"
+    }
+  },
+  "history": {
+    "测试用词书": {
+      "last_location": 0
+    }
+  }
 }

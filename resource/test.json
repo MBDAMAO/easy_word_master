@@ -1,19 +1,52 @@
 {
+  "dictName": "测试用词书",
+  "creator": "damao",
+  "create_time": "2024-06-19 20:43:55",
   "words": [
     {
-      "name": "guess",
+      "name": "guess1",
       "type": "vt",
       "eg": "guess it!",
       "trans": "猜一猜"
     },
     {
-      "name": "guess",
+      "name": "guess2",
       "type": "vt",
       "eg": "guess it!",
       "trans": "猜一猜"
     },
     {
-      "name": "guess",
+      "name": "guess3",
+      "type": "vt",
+      "eg": "guess it!",
+      "trans": "猜一猜"
+    },
+    {
+      "name": "guess4",
+      "type": "vt",
+      "eg": "guess it!",
+      "trans": "猜一猜"
+    },
+    {
+      "name": "guess5",
+      "type": "vt",
+      "eg": "guess it!",
+      "trans": "猜一猜"
+    },
+    {
+      "name": "guess6",
+      "type": "vt",
+      "eg": "guess it!",
+      "trans": "猜一猜"
+    },
+    {
+      "name": "guess7",
+      "type": "vt",
+      "eg": "guess it!",
+      "trans": "猜一猜"
+    },
+    {
+      "name": "guess3",
       "type": "vt",
       "eg": "guess it!",
       "trans": "猜一猜"

@@ -1,0 +1,76 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 70px;
+    max-height: 70px;
+    min-width: 300px;
+    min-height: 70px;
+    width: 300px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    padding: 0 5px 0 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    -webkit-app-region: drag;
+    opacity: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.upbox {
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+
+.title {
+    width: 80%;
+    font-size: 25px;
+}
+
+.switch {
+    font-size: 10px;
+    width: 20%;
+    height: 100%;
+    display: flex;
+}
+
+.left {
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+    align-content: center;
+    height: 100%;
+    width: 50%;
+    user-select: none;
+}
+
+.right {
+    -webkit-app-region: no-drag;
+    align-content: center;
+    cursor: pointer;
+    width: 50%;
+    height: 100%;
+    user-select: none;
+}
+
+.translate {
+    font-size: 10px;
+}
+
+.sentence {
+    font-size: 10px;
+    -webkit-app-region: no-drag;
+}
+
+.foot {
+    font-size: 10px;
+    height: 10px;
+    width: 100%;
+}

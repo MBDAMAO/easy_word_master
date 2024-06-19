@@ -6,102 +6,35 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'"> -->
     <title>Hello World!</title>
-    <style type="text/css">
-        body {
-            padding: 0;
-            margin: 0;
-            height: 60px;
-            max-height: 60px;
-            min-width: 300px;
-            min-height: 60px;
-            width: 300px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-
-        .container {
-            padding: 0 5px 0 5px;
-            box-sizing: border-box;
-            overflow: hidden;
-            background-color: rgb(0, 0, 0);
-            border-radius: 10px;
-            height: 100%;
-            width: 100%;
-            -webkit-app-region: drag;
-            opacity: 100%;
-            display: flex;
-            flex-direction: column;
-            color: white;
-        }
-
-        .upbox {
-            height: 50%;
-            width: 100%;
-            display: flex;
-        }
-
-        .title {
-            width: 80%;
-            font-size: 25px;
-        }
-
-        .switch {
-            font-size: 10px;
-            width: 20%;
-            height: 100%;
-            display: flex;
-
-        }
-
-        .left {
-            -webkit-app-region: no-drag;
-            cursor: pointer;
-            align-content: center;
-            height: 100%;
-            width: 50%;
-        }
-
-        .right {
-            -webkit-app-region: no-drag;
-            align-content: center;
-            cursor: pointer;
-            width: 50%;
-            height: 100%;
-        }
-
-        .translate {
-            font-size: 10px;
-        }
-
-        .sentence {
-            font-size: 10px;
-            -webkit-app-region: no-drag;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="upbox">
-            <div class="title">
+            <div class="title" id="title">
                 relax
             </div>
             <div class="switch">
-                <div class="left">
+                <div class="left" onclick="prev()">
                     left
                 </div>
-                <div class="right">
+                <div class="right" onclick="next()">
                     right
                 </div>
             </div>
         </div>
-        <div class="translate">
+        <div class="translate" id="translate">
             放松
         </div>
-        <div class="sentence">
+        <div class="sentence" id="sentence">
             Now lets all relax with some romantic music.
         </div>
+        <div class="foot" id="foot">
+            NaN / NaN
+        </div>
     </div>
+    <script src='./src/render.js'></script>
 </body>
-
 
 </html>

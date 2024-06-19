@@ -2,7 +2,7 @@
   "name": "easy_en_words",
   "version": "1.0.0",
   "description": "TEST ELECTRON",
-  "main": "main.js",
+  "main": "src\\main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
