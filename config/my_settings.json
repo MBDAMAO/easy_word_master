@@ -3,7 +3,7 @@
   "delay_time": 6000,
   "order_play": false,
   "mode": "simple",
-  "theme": "dark",
+  "theme": "jetbrains",
   "all_themes": [
     "dark",
     "light",
@@ -59,7 +59,7 @@
   },
   "history": {
     "测试用词书": {
-      "last_location": 4
+      "last_location": 10
     }
   }
 }

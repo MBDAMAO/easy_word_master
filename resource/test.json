@@ -10,46 +10,71 @@
       "trans": "v.抛弃，遗弃；"
     },
     {
-      "name": "abandon",
+      "name": "fiber",
       "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "eg": "Silk is the strongest natural fiber in the world.",
+      "trans": "n. 纤维，纤维织物"
+    },
+
+    {
+      "name": "achieve",
+      "type": "vt",
+      "eg": "Hard work can help you achieve your goals.",
+      "trans": "v. 实现，达到"
     },
     {
-      "name": "abandon",
-      "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "name": "balance",
+      "type": "n",
+      "eg": "Maintaining a work-life balance is important for well-being.",
+      "trans": "n. 平衡，余额"
     },
     {
-      "name": "abandon",
+      "name": "compose",
       "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "eg": "The musician composed a beautiful symphony.",
+      "trans": "v. 组成，作曲"
     },
     {
-      "name": "abandon",
-      "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "name": "decrease",
+      "type": "vi",
+      "eg": "The number of visitors decreased due to the bad weather.",
+      "trans": "v. 减少，变小"
     },
     {
-      "name": "abandon",
+      "name": "enhance",
       "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "eg": "Eating healthy foods can enhance your immune system.",
+      "trans": "v. 增强，提高"
     },
     {
-      "name": "abandon",
+      "name": "formulate",
       "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "eg": "The scientist formulated a new hypothesis.",
+      "trans": "v. 制定，规划"
     },
     {
-      "name": "abandon",
+      "name": "generate",
       "type": "vt",
-      "eg": "Snow forced many drivers to abandon their vehicles.",
-      "trans": "v.抛弃，遗弃；"
+      "eg": "The wind turbines generate electricity for the town.",
+      "trans": "v. 产生，生成"
+    },
+    {
+      "name": "illustrate",
+      "type": "vt",
+      "eg": "He used diagrams to illustrate his point.",
+      "trans": "v. 说明，给...做插图"
+    },
+    {
+      "name": "justify",
+      "type": "vt",
+      "eg": "The company had to justify their decision to the shareholders.",
+      "trans": "v. 证明...正当，对齐"
+    },
+    {
+      "name": "modify",
+      "type": "vt",
+      "eg": "The software was modified to fix the bug.",
+      "trans": "v. 修改，改变"
     }
   ]
 }

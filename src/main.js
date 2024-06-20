@@ -8,8 +8,8 @@ const {
 } = require("./load");
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 500,
+    width: 300,
+    height: 76,
     minWidth: 300,
     minHeight: 76,
     maxHeight: 76,
