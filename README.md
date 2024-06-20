@@ -1,8 +1,8 @@
-一个用来背单词的摸鱼软件（开发中）
+# 一个用来背单词的摸鱼软件（开发中）
 
 # 技术选型
 
-electron
+    electron
 
 # 功能&特点
 
@@ -12,6 +12,7 @@ electron
 4. 多种主题样式更换
 5. 单机运行、无需联网、进度自动保存
 6. 快捷键支持
+   ![.\doc\1.png](.\doc\1.png "p1")
 
 ## TODO-LIST
 
@@ -33,11 +34,14 @@ npm start
 
 ## release 版本
 
+待发布...
+
 ## 快捷键
 
-PageUp | ArrowLeft 跳转到上一项
-PageDown | ArrowRight 跳转到下一项
-Blank 随机一项
-p 暂停/开始播放
-r 随机播放开启/关闭
-待发布...
+| key                   | 功能              |
+| --------------------- | ----------------- |
+| PageUp / ArrowLeft    | 跳转到上一项      |
+| PageDown / ArrowRight | 跳转到下一项      |
+| blank                 | 随机一项          |
+| p                     | 暂停/开始播放     |
+| r                     | 随机播放开启/关闭 |

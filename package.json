@@ -1,7 +1,7 @@
 {
   "name": "easy_en_words",
   "version": "1.0.0",
-  "description": "TEST ELECTRON",
+  "description": "TEST_ELECTRON",
   "main": "src\\main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
