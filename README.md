@@ -12,7 +12,8 @@
 4. 多种主题样式更换
 5. 单机运行、无需联网、进度自动保存
 6. 快捷键支持
-   ![.\doc\1.png](.\doc\1.png "p1")
+   
+![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/1.png)
 
 ## TODO-LIST
 
