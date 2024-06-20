@@ -1,7 +1,7 @@
 {
-  "auto_play": false,
-  "delay_time": 5000,
-  "order_play": true,
+  "auto_play": true,
+  "delay_time": 2000,
+  "order_play": false,
   "mode": "simple",
   "theme": "light",
   "all_themes": ["dark", "light"],

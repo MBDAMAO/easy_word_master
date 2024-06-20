@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="upbox">
             <div class="title" id="title">
-                relax
             </div>
             <div class="switch">
                 <div class="left" onclick="prev()">
@@ -24,14 +23,18 @@
                 </div>
             </div>
         </div>
-        <div class="translate" id="translate">
-            放松
-        </div>
-        <div class="sentence" id="sentence">
-            Now lets all relax with some romantic music.
-        </div>
-        <div class="foot" id="foot">
-            NaN / NaN
+        <div class=downbox>
+            <div class="info">
+                <div class="translate" id="translate">
+                </div>
+                <div class="sentence" id="sentence">
+                </div>
+            </div>
+            <div class="foot" id="foot">
+            </div>
+            <div class="settings" onclick="openMenu()">
+                settings
+            </div>
         </div>
     </div>
     <script src='./src/render.js'></script>

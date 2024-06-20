@@ -3,6 +3,35 @@ window.versions.onrequestconfig(() => {
   settings.history[dictname].last_location = index;
   window.versions.saveSettings(settings);
 });
+window.versions.setDefaultSettings(() => {
+  window.versions.setDefault();
+});
+window.versions.setRandPlay((rand_play) => {
+  settings.order_play = rand_play;
+  window.versions.saveSettings(settings);
+});
+window.versions.setAutoPlay((auto_play) => {
+  settings.auto_play = auto_play;
+  if (!auto_play) {
+    clearInterval(intervalId);
+  } else {
+    setTimer(settings.delay_time);
+  }
+  window.versions.saveSettings(settings);
+});
+window.versions.updateDelayTime((delay_time) => {
+  settings.delay_time = delay_time;
+  if (settings.auto_play) {
+    setTimer(settings.delay_time);
+  }
+  window.versions.saveSettings(settings);
+});
+window.versions.updateTheme((theme) => {
+  console.log("更换主题" + theme);
+  settings.theme = theme;
+  loadTheme(settings.themes[theme]);
+  window.versions.saveSettings(settings);
+});
 const func = async () => {
   settings = await window.versions.loadSettings();
   console.log(settings);
@@ -17,10 +46,18 @@ func().then((datas) => {
   dictname = datas.dictName;
   console.log(settings);
   index = settings.history[dictname].last_location;
+  theme = settings.theme;
+  themeDetail = settings.themes[theme];
+  loadTheme(themeDetail);
   //console.log(datas);
   update();
 });
 let intervalId = null;
+function loadTheme(theme) {
+  var div = document.getElementById("container");
+  div.style.backgroundColor = theme.background_color;
+  div.style.color = theme.font_color;
+}
 function setTimer(delay_time) {
   clearInterval(intervalId);
   intervalId = setInterval(() => {
@@ -65,6 +102,9 @@ function next() {
   //console.log(words[index]);
   index += 1;
   update();
+}
+function openMenu() {
+  window.versions.createMenu(settings);
 }
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
