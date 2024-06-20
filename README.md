@@ -12,7 +12,7 @@
 4. 多种主题样式更换
 5. 单机运行、无需联网、进度自动保存
 6. 快捷键支持
-   
+
 ![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/1.png)
 
 ## TODO-LIST
@@ -20,7 +20,8 @@
 1. 导入自定义词库
 2. 朗读功能支持
 3. 指定项跳转
-4. NOT JUST WORDS
+4. JSON 文本读写存取 ——> IndexedDB
+5. NOT JUST WORDS
 
 # 使用方式
 

@@ -1,9 +1,9 @@
 {
   "auto_play": false,
-  "delay_time": 2000,
+  "delay_time": 7000,
   "order_play": true,
   "mode": "simple",
-  "theme": "blue",
+  "theme": "dark",
   "all_themes": [
     "dark",
     "light",
@@ -59,7 +59,7 @@
   },
   "history": {
     "测试用词书": {
-      "last_location": 8
+      "last_location": 6
     }
   }
 }
