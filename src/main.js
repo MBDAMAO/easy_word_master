@@ -10,10 +10,8 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 300,
     height: 76,
-    minWidth: 300,
-    minHeight: 76,
-    maxHeight: 76,
-    maxWidth: 300,
+    // minHeight: 76,
+    // minWidth: 300,
     frame: false,
     alwaysOnTop: true,
     transparent: true,
@@ -28,6 +26,7 @@ const createWindow = () => {
     win.webContents.send("request-config");
   });
   win.loadFile("index.html");
+  win.setAspectRatio(300 / 76);
   //隐藏顶部菜单
   // win.setMenu(null);
   // loadUserSettings();
