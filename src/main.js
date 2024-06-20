@@ -34,7 +34,6 @@ const createWindow = () => {
   // loadDict();
 };
 function createContextMenu(event, settings) {
-  console.log("createMenu");
   let bookmenu = [];
   let delaymenu = [];
   let thememenu = [];
@@ -114,12 +113,12 @@ app.whenReady().then(() => {
     createContextMenu(event, settings)
   );
   ipcMain.on("saveSettings", (event, settings) => {
-    console.log("save");
     saveUserSettings(settings);
   });
-  ipcMain.on("setDefaultEvent", (event, settings) => {
+  ipcMain.on("setDefaultEvent", () => {
     setDefault();
   });
+  createWindow();
 });
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();

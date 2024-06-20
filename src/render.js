@@ -26,14 +26,12 @@ window.versions.updateDelayTime((delay_time) => {
   window.versions.saveSettings(settings);
 });
 window.versions.updateTheme((theme) => {
-  console.log("更换主题" + theme);
   settings.theme = theme;
   loadTheme(settings.themes[theme]);
   window.versions.saveSettings(settings);
 });
 const func = async () => {
   settings = await window.versions.loadSettings();
-  console.log(settings);
   const response = await window.versions.ping();
   return response;
 };
@@ -43,19 +41,54 @@ let index = 0;
 func().then((datas) => {
   words = datas.words;
   dictname = datas.dictName;
-  console.log(settings);
   index = settings.history[dictname].last_location;
   theme = settings.theme;
   themeDetail = settings.themes[theme];
   loadTheme(themeDetail);
-  //console.log(datas);
   update();
+});
+document.addEventListener("keydown", function (event) {
+  if (event.key === "PageUp" || event.key === "ArrowLeft") {
+    prev();
+  } else if (event.key === "PageDown" || event.key === "ArrowRight") {
+    next();
+  } else if (event.key === " ") {
+    randomNext();
+  } else if (event.key === "p") {
+    settings.auto_play = !settings.auto_play;
+    if (!settings.auto_play) {
+      clearInterval(intervalId);
+    } else {
+      setTimer(settings.delay_time);
+    }
+    window.versions.saveSettings(settings);
+  } else if (event.key === "r") {
+    settings.order_play = !settings.order_play;
+    window.versions.saveSettings(settings);
+  }
 });
 let intervalId = null;
 function loadTheme(theme) {
   var div = document.getElementById("container");
-  div.style.backgroundColor = theme.background_color;
+  document.getElementById("backg").style.backgroundColor =
+    theme.background_color;
   div.style.color = theme.font_color;
+  document.getElementById("backg").style.opacity = theme.opacity
+    ? theme.opacity
+    : "100%";
+  document.getElementById("sentence").style.color = theme.sentence_color
+    ? theme.sentence_color
+    : theme.font_color;
+  if (theme.control_color) {
+    document.getElementById("switch").style.color = theme.control_color;
+  } else {
+    document.getElementById("switch").style.color = theme.font_color;
+  }
+  if (theme.trans_color) {
+    document.getElementById("translate").style.color = theme.trans_color;
+  } else {
+    document.getElementById("translate").style.color = theme.font_color;
+  }
 }
 function setTimer(delay_time) {
   clearInterval(intervalId);
@@ -65,7 +98,6 @@ function setTimer(delay_time) {
     } else {
       randomNext();
     }
-    console.log("" + delay_time / 1000 + "秒进行一次翻页");
   }, delay_time);
 }
 function update() {
@@ -82,23 +114,25 @@ function update() {
 }
 function prev() {
   if (index <= 0) {
-    console.log("到顶了！");
     return;
   }
-  //console.log(words[index]);
   index -= 1;
   update();
 }
 function randomNext() {
-  index = getRandomIntInclusive(0, words.length - 1);
+  let nindex = getRandomIntInclusive(0, words.length - 1);
+  let counter = 0;
+  while (nindex === index && counter <= 10) {
+    nindex = getRandomIntInclusive(0, words.length - 1);
+    counter += 1;
+  }
+  index = nindex;
   update();
 }
 function next() {
   if (index >= words.length - 1) {
-    console.log("到尾了！");
     return;
   }
-  //console.log(words[index]);
   index += 1;
   update();
 }

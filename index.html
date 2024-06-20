@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'"> -->
-    <title>Hello World!</title>
+    <title>easy_word_master</title>
     <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
+    <div class="backg" id="backg"></div>
     <div class="container" id="container">
         <div class="upbox">
             <div class="title" id="title">
             </div>
-            <div class="switch">
+            <div class="switch" id="switch">
                 <div class="left" onclick="prev()">
-                    left
+                    prev
                 </div>
                 <div class="right" onclick="next()">
-                    right
+                    next
                 </div>
             </div>
         </div>
@@ -33,7 +34,7 @@
             <div class="foot" id="foot">
             </div>
             <div class="settings" onclick="openMenu()">
-                settings
+                ⚙
             </div>
         </div>
     </div>

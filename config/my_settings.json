@@ -1,13 +1,30 @@
 {
-  "auto_play": true,
-  "delay_time": 2000,
+  "auto_play": false,
+  "delay_time": 6000,
   "order_play": false,
   "mode": "simple",
-  "theme": "light",
-  "all_themes": ["dark", "light"],
-  "all_delay_time": [7000, 6000, 5000, 4000, 3000, 2000],
+  "theme": "dark",
+  "all_themes": [
+    "dark",
+    "light",
+    "jetbrains",
+    "candy",
+    "blue"
+  ],
+  "all_delay_time": [
+    7000,
+    6000,
+    5000,
+    4000,
+    3000,
+    2000
+  ],
   "selected_book": "测试用词书",
-  "all_books": ["测试用词书", "考研高频词汇", "雅思词汇"],
+  "all_books": [
+    "测试用词书",
+    "考研高频词汇",
+    "雅思词汇"
+  ],
   "themes": {
     "dark": {
       "background_color": "black",
@@ -16,11 +33,33 @@
     "light": {
       "background_color": "white",
       "font_color": "black"
+    },
+    "jetbrains": {
+      "background_color": "rgb(43,43,43)",
+      "font_color": "rgb(186,119,49)",
+      "sentence_color": "rgb(169,169,169)",
+      "control_color": "rgb(169,169,169)",
+      "trans_color": "rgb(169,169,169)"
+    },
+    "candy": {
+      "background_color": "#8785a2",
+      "font_color": "#ffc7c7",
+      "sentence_color": "#ffe2e2",
+      "control_color": "#f6f6f6",
+      "trans_color": "#ffe2e2",
+      "opacity": "50%"
+    },
+    "blue": {
+      "background_color": "#222831",
+      "font_color": "#00adb5",
+      "sentence_color": "#eeeeee",
+      "control_color": "#eeeeee",
+      "trans_color": "#eeeeee"
     }
   },
   "history": {
     "测试用词书": {
-      "last_location": 0
+      "last_location": 1
     }
   }
 }
