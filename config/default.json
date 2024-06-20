@@ -4,6 +4,20 @@
   "order_play": false,
   "mode": "simple",
   "theme": "001",
+  "all_delay_time": [
+    7000,
+    6000,
+    5000,
+    4000,
+    3000,
+    2000
+  ],
+  "selected_book": "测试用词书",
+  "all_books": [
+    "测试用词书",
+    "考研高频词汇",
+    "雅思词汇"
+  ],
   "themes": {
     "001": {
       "background-color": "black",
@@ -16,7 +30,7 @@
   },
   "history": {
     "测试用词书": {
-      "last_location": 0
+      "last_location": 4
     }
   }
 }

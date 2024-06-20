@@ -15,4 +15,5 @@ contextBridge.exposeInMainWorld("versions", {
   saveSettings: (value) => ipcRenderer.send("saveSettings", value),
   onrequestconfig: (callback) =>
     ipcRenderer.on("request-config", (_event, value) => callback(value)),
+  createMenu: (value) => ipcRenderer.send("createMenu", value),
 });

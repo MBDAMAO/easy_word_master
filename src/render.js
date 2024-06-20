@@ -23,13 +23,13 @@ func().then((datas) => {
 let intervalId = null;
 function setTimer(delay_time) {
   clearInterval(intervalId);
-  intervalId = setInterval((delay_time) => {
+  intervalId = setInterval(() => {
     if (settings.order_play) {
       next();
     } else {
       randomNext();
     }
-    console.log("" + delay_time / 100 + "秒进行一次翻页");
+    console.log("" + delay_time / 1000 + "秒进行一次翻页");
   }, delay_time);
 }
 function update() {
@@ -54,7 +54,7 @@ function prev() {
   update();
 }
 function randomNext() {
-  index = getRandomIntInclusive(0, words.length);
+  index = getRandomIntInclusive(0, words.length - 1);
   update();
 }
 function next() {
@@ -71,3 +71,8 @@ function getRandomIntInclusive(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+window.addEventListener("contextmenu", (e) => {
+  e.preventDefault(); // 阻止默认上下文菜单
+  console.log(11);
+  window.versions.createMenu(settings);
+});
