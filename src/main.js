@@ -12,13 +12,13 @@ const createWindow = () => {
     height: 500,
     minWidth: 300,
     minHeight: 76,
-    // maxHeight: 76,
-    // maxWidth: 300,
-    // frame: false,
+    maxHeight: 76,
+    maxWidth: 300,
+    frame: false,
     alwaysOnTop: true,
     transparent: true,
     webPreferences: {
-      nodeIntegration: true,
+      // nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
     },
   });
@@ -117,7 +117,7 @@ app.whenReady().then(() => {
     console.log("save");
     saveUserSettings(settings);
   });
-  ipcMain.on("setDefault", (event, settings) => {
+  ipcMain.on("setDefaultEvent", (event, settings) => {
     setDefault();
   });
 });

@@ -1,10 +1,9 @@
 window.versions.onrequestconfig(() => {
-  console.log(111);
   settings.history[dictname].last_location = index;
   window.versions.saveSettings(settings);
 });
 window.versions.setDefaultSettings(() => {
-  window.versions.setDefault();
+  window.versions.setDefaultEvent();
 });
 window.versions.setRandPlay((rand_play) => {
   settings.order_play = rand_play;

@@ -1,10 +1,4 @@
 const { contextBridge, ipcRenderer } = require("electron");
-window.addEventListener("DOMContentLoaded", () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector);
-    if (element) element.innerText = text;
-  };
-});
 
 contextBridge.exposeInMainWorld("versions", {
   node: () => process.versions.node,
@@ -26,5 +20,5 @@ contextBridge.exposeInMainWorld("versions", {
     ipcRenderer.on("setRandPlay", (_event, value) => callback(value)),
   setDefaultSettings: (callback) =>
     ipcRenderer.on("setDefaultSettings", (_event, value) => callback(value)),
-  setDefault: (value) => ipcRenderer.send("setDefault", value),
+  setDefaultEvent: (value) => ipcRenderer.send("setDefaultEvent", value),
 });
