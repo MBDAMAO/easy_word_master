@@ -14,8 +14,12 @@
 6. 快捷键支持
 7. 朗读功能支持
 
-![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/1.png)
-
+![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020147.png)
+![p2](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020156.png)
+![p3](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020201.png)
+![p4](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020206.png)
+![p5](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020216.png)
+![p6](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/屏幕截图 2024-06-23 020231.png)
 ## TODO-LIST
 
 1. 导入、导出
