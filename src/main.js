@@ -1,14 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu } = require("electron");
 require("./speak/youdao_voice/youdao_voice");
 const path = require("node:path");
-const { argv } = require("node:process");
-const {
-  setDefault,
-  saveUserSettings,
-  loadUserSettings,
-  closeDB,
-  cleanTemp,
-} = require("./resource/load");
+const { closeDB, cleanTemp } = require("./resource/load");
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 300,
@@ -30,10 +23,6 @@ const createWindow = () => {
   });
   win.loadFile("src/index.html");
   win.setAspectRatio(300 / 76);
-  //隐藏顶部菜单
-  // win.setMenu(null);
-  // loadUserSettings();
-  // loadDict();
   win.webContents.on("console-message", (level, message, line, sourceId) => {
     console.log(
       `Render Process Console: ${level}, ${message}, ${line}, ${sourceId}`
@@ -120,16 +109,9 @@ function createContextMenu(event, settings) {
   menu.popup({ window: BrowserWindow.fromWebContents(event.sender) });
 }
 app.whenReady().then(() => {
-  ipcMain.handle("loadSettings", () => loadUserSettings());
   ipcMain.on("createMenu", (event, settings) =>
     createContextMenu(event, settings)
   );
-  ipcMain.on("saveSettings", (event, settings) => {
-    saveUserSettings(settings);
-  });
-  ipcMain.on("setDefaultEvent", () => {
-    setDefault();
-  });
   createWindow();
 });
 app.on("window-all-closed", () => {
@@ -137,7 +119,6 @@ app.on("window-all-closed", () => {
 });
 app.on("before-quit", () => {
   closeDB();
-  // cleanTemp();
 });
 // const isDevelopment = !app.isPackaged;
 // if (isDevelopment) {

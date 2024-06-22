@@ -1,5 +1,60 @@
+// import updateSettingsInit from "./update_settings.js";
+let index = 0;
+let settings = null;
+let dict = null;
+let word = null;
+let intervalId = null;
+let docItems = {
+  audio: document.getElementById("audio"),
+  icon: document.getElementById("icon"),
+  title: document.getElementById("title"),
+  translate: document.getElementById("translate"),
+  sentence: document.getElementById("sentence"),
+  foot: document.getElementById("foot"),
+  voice: document.getElementById("voice"),
+  switch: document.getElementById("switch"),
+};
+window.versions.loadSettings().then((data) => {
+  // console.log("loadSettings:", JSON.stringify(data, null, 2));
+  settings = data;
+  console.log("loadDict:", settings.selected_book);
+  window.resourceAPI.loadDict(settings.selected_book);
+});
+window.resourceAPI.onLoadDict((data) => {
+  dict = data;
+  console.log(dict);
+  index = settings.history[dict.name].last_location;
+  let theme = settings.theme;
+  let themeDetail = settings.themes[theme];
+  loadTheme(themeDetail);
+  update();
+});
+window.resourceAPI.onGetWord(async (data) => {
+  word = data;
+  docItems.icon.setAttribute("fill", "red");
+  docItems.title.innerText = word.name;
+  docItems.translate.innerText = word.trans;
+  docItems.sentence.innerText = word.sentence;
+  docItems.foot.innerText = word.code.replace("/", " / ");
+  docItems.voice.innerText = word.voice;
+  if (settings.auto_play) {
+    setTimer(settings.delay_time);
+  }
+  if (settings.auto_voice) {
+    voice();
+  }
+  settings.history[dict.name].last_location = index;
+  window.versions.saveSettings(settings);
+});
+window.resourceAPI.beforeUpdataSelectedBook((data) => {
+  console.log("beforeUpdataSelectedBook:", data);
+  settings.selected_book = data;
+  index = settings.history[data].last_location;
+  window.versions.saveSettings(settings);
+  window.resourceAPI.loadDict(data);
+});
 window.versions.onrequestconfig(() => {
-  settings.history[dictname].last_location = index;
+  settings.history[dict.name].last_location = index;
   window.versions.saveSettings(settings);
 });
 window.versions.setDefaultSettings(() => {
@@ -30,22 +85,7 @@ window.versions.updateTheme((theme) => {
   loadTheme(settings.themes[theme]);
   window.versions.saveSettings(settings);
 });
-let index = 0;
-let settings = null;
-let dict = null;
-let word = null;
-window.versions.loadSettings().then((data) => {
-  settings = data;
-  window.resourceAPI.loadDict();
-});
-window.resourceAPI.onLoadDict((data) => {
-  dict = data;
-  index = settings.history[dict.name].last_location;
-  theme = settings.theme;
-  themeDetail = settings.themes[theme];
-  loadTheme(themeDetail);
-  update();
-});
+// 快捷键映射
 document.addEventListener("keydown", function (event) {
   if (
     event.key === "PageUp" ||
@@ -76,7 +116,6 @@ document.addEventListener("keydown", function (event) {
     window.versions.saveSettings(settings);
   }
 });
-let intervalId = null;
 function loadTheme(theme) {
   var div = document.getElementById("container");
   document.getElementById("backg").style.backgroundColor =
@@ -85,18 +124,18 @@ function loadTheme(theme) {
   document.getElementById("backg").style.opacity = theme.opacity
     ? theme.opacity
     : "100%";
-  document.getElementById("sentence").style.color = theme.sentence_color
+  docItems.sentence.style.color = theme.sentence_color
     ? theme.sentence_color
     : theme.font_color;
   if (theme.control_color) {
-    document.getElementById("switch").style.color = theme.control_color;
+    docItems.switch.style.color = theme.control_color;
   } else {
-    document.getElementById("switch").style.color = theme.font_color;
+    docItems.switch.style.color = theme.font_color;
   }
   if (theme.trans_color) {
-    document.getElementById("translate").style.color = theme.trans_color;
+    docItems.translate.style.color = theme.trans_color;
   } else {
-    document.getElementById("translate").style.color = theme.font_color;
+    docItems.translate.style.color = theme.font_color;
   }
 }
 function setTimer(delay_time) {
@@ -112,7 +151,6 @@ function setTimer(delay_time) {
 function update() {
   window.resourceAPI.getWord({ dict: dict.code, id: index + 1 });
 }
-audio = document.getElementById("audio");
 window.versions.onGetvoice(async (data) => {
   if (data.name != word.name) return;
   if (audio.src != `../resource/temp/${data.code}`) {
@@ -122,24 +160,10 @@ window.versions.onGetvoice(async (data) => {
   audio.play();
 });
 audio.addEventListener("play", () => {
-  document.getElementById("icon").setAttribute("fill", "green");
+  docItems.icon.setAttribute("fill", "green");
 });
 audio.addEventListener("ended", () => {
-  document.getElementById("icon").setAttribute("fill", "red");
-});
-window.resourceAPI.onGetWord(async (data) => {
-  word = data;
-  document.getElementById("icon").setAttribute("fill", "red");
-  document.getElementById("title").innerText = word.name;
-  document.getElementById("translate").innerText = word.trans;
-  document.getElementById("sentence").innerText = word.sentence;
-  document.getElementById("foot").innerText = word.code.replace("/", " / ");
-  document.getElementById("voice").innerText = word.voice;
-  if (settings.auto_play) {
-    setTimer(settings.delay_time);
-  }
-  settings.history[dict.name].last_location = index;
-  window.versions.saveSettings(settings);
+  docItems.icon.setAttribute("fill", "red");
 });
 function prev() {
   if (index <= 0) {
@@ -166,17 +190,18 @@ function next() {
   update();
 }
 function voice() {
-  document.getElementById("icon").setAttribute("fill", "orange");
+  docItems.icon.setAttribute("fill", "orange");
   console.log("voice");
   window.versions.voice(word.name);
 }
-function openMenu() {
-  window.versions.createMenu(settings);
-}
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function openMenu() {
+  window.versions.createMenu(settings);
 }
 window.addEventListener("contextmenu", (e) => {
   e.preventDefault(); // 阻止默认上下文菜单

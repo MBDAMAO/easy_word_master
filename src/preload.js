@@ -33,7 +33,11 @@ contextBridge.exposeInMainWorld("resourceAPI", {
   loadDict: (dict) => ipcRenderer.send("loadDict", dict),
   onLoadDict: (callback) =>
     ipcRenderer.on("loadDict-reply", (_event, value) => callback(value)),
+
   getWord: (dict) => ipcRenderer.send("getWord", dict),
   onGetWord: (callback) =>
     ipcRenderer.on("getWord-reply", (_event, value) => callback(value)),
+
+  beforeUpdataSelectedBook: (callback) =>
+    ipcRenderer.on("update_selected_book", (_event, value) => callback(value)),
 });

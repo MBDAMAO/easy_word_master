@@ -11,7 +11,7 @@ const db = new sqlite3.Database(
 );
 
 db.run(
-  "CREATE TABLE IF NOT EXISTS word (id INTEGER PRIMARY KEY,code TEXT, name TEXT, voice TEXT, trans TEXT, sentence TEXT);",
+  "CREATE TABLE IF NOT EXISTS tuofu1 (id INTEGER PRIMARY KEY,code TEXT, name TEXT, voice TEXT, trans TEXT, sentence TEXT);",
   [],
   (err) => {
     if (err) {

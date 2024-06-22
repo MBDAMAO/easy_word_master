@@ -1,7 +1,8 @@
 {
   "auto_play": false,
-  "delay_time": 5000,
+  "delay_time": 2000,
   "order_play": true,
+  "auto_voice": true,
   "mode": "simple",
   "theme": "dark",
   "all_themes": [
@@ -19,10 +20,10 @@
     3000,
     2000
   ],
-  "selected_book": "红宝书考研单词",
+  "selected_book": "雅思词汇",
   "all_books": [
     "红宝书考研单词",
-    "考研高频词汇",
+    "托福词汇",
     "雅思词汇"
   ],
   "themes": {
@@ -59,7 +60,13 @@
   },
   "history": {
     "红宝书考研单词": {
-      "last_location": 5800
+      "last_location": 941
+    },
+    "托福词汇": {
+      "last_location": 1264
+    },
+    "雅思词汇": {
+      "last_location": 2194
     }
   }
 }

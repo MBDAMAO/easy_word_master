@@ -1,4 +1,5 @@
 /out
 /node_modules
-/my_settings.json
+/config/my_settings.json
 **/temp
+/dist

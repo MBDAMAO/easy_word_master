@@ -76,21 +76,24 @@ module.exports = {
   cleanTemp,
   loadUserSettings,
 };
-
-ipcMain.on("loadDict", (event, data) => {
-  console.log("loadDict");
-  db.each(`select * from dict_info where id = 1`, function (err, row) {
-    if (err) {
-      console.error(err.message);
-      throw err;
-    } else {
-      console.log(row);
-      event.reply("loadDict-reply", row);
+// 获取词书信息
+ipcMain.on("loadDict", (event, dictName) => {
+  console.log("词书名称：", dictName);
+  db.each(
+    `select * from dict_info where name = '${dictName}'`,
+    function (err, row) {
+      if (err) {
+        console.error(err.message);
+        throw err;
+      } else {
+        console.log("获取词书信息:", row);
+        event.reply("loadDict-reply", row);
+      }
     }
-  });
+  );
 });
+// 根据词书和id获取单个单词
 ipcMain.on("getWord", (event, data) => {
-  // console.log(data);
   db.each(
     `select * from ${data.dict} where id = ${data.id}`,
     function (err, row) {
@@ -102,4 +105,11 @@ ipcMain.on("getWord", (event, data) => {
       }
     }
   );
+});
+ipcMain.handle("loadSettings", () => loadUserSettings());
+ipcMain.on("saveSettings", (event, settings) => {
+  saveUserSettings(settings);
+});
+ipcMain.on("setDefaultEvent", () => {
+  setDefault();
 });

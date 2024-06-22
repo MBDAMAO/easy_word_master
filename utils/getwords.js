@@ -3,7 +3,7 @@ function saveword(postData) {
   http.postJson(url, postData);
 }
 let arr = [];
-let times = 1;
+let times = 10000;
 while (times--) {
   let code = id("tv_learn_status").findOne().text();
   let word = id("tv_word").findOne().text();
@@ -14,7 +14,8 @@ while (times--) {
   for (let i = 0; i < means.length; i++) {
     trans = trans + shuxing[i].text() + means[i].text() + " ";
   }
-  let sentence = id("main_en_sentence").findOne().text();
+  let sentenceObj = id("main_en_sentence").findOne(2000);
+  let sentence = sentenceObj != null ? sentenceObj.text() : "";
   id("bottom_right_button_container").findOne().click();
   let block = {
     code: code,
