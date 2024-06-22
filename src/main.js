@@ -130,7 +130,7 @@ app.on("window-all-closed", () => {
 });
 app.on("before-quit", () => {
   closeDB();
-  cleanTemp();
+  // cleanTemp();
 });
 // const isDevelopment = !app.isPackaged;
 // if (isDevelopment) {

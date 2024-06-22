@@ -14,9 +14,13 @@ ipcMain.on("voice", (event, word) => {
     });
     resp.on("end", () => {
       const mp3 = Buffer.concat(mp3data);
-      let code = generateUUID();
-      fs.writeFileSync(`resource/temp/${code}.mp3`, mp3);
-      event.reply("voice-reply", code);
+      const resource = `resource/temp/youdao_US_${word}.mp3`;
+      console.log("beforegetmp3" + resource);
+      if (!fs.existsSync(resource)) {
+        fs.writeFileSync(resource, mp3);
+      }
+      console.log("aftergetmp3" + resource);
+      event.reply("voice-reply", `youdao_US_${word}.mp3`);
     });
   });
 });

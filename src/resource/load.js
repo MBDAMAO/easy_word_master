@@ -56,7 +56,7 @@ function saveUserSettings(settings) {
   }
 }
 function cleanTemp() {
-  fs.rmdirSync("../resource/temp");
+  fs.rmdirSync("resource/temp");
 }
 module.exports = {
   closeDB,
