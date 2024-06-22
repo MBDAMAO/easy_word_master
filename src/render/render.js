@@ -113,9 +113,10 @@ function update() {
   window.resourceAPI.getWord({ dict: dict.code, id: index + 1 });
 }
 audio = document.getElementById("audio");
-window.versions.onGetvoice(async (code) => {
-  if (audio.src != `../resource/temp/${code}`) {
-    audio.src = `../resource/temp/${code}`;
+window.versions.onGetvoice(async (data) => {
+  if (data.name != word.name) return;
+  if (audio.src != `../resource/temp/${data.code}`) {
+    audio.src = `../resource/temp/${data.code}`;
     audio.load();
   }
   audio.play();
@@ -128,6 +129,7 @@ audio.addEventListener("ended", () => {
 });
 window.resourceAPI.onGetWord(async (data) => {
   word = data;
+  document.getElementById("icon").setAttribute("fill", "red");
   document.getElementById("title").innerText = word.name;
   document.getElementById("translate").innerText = word.trans;
   document.getElementById("sentence").innerText = word.sentence;

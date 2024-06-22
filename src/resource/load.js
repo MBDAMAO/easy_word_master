@@ -56,7 +56,26 @@ function saveUserSettings(settings) {
   }
 }
 function cleanTemp() {
-  fs.rmdirSync("resource/temp");
+  deleteFolderRecursiveAsync("resource/temp");
+}
+async function deleteFolderRecursiveAsync(dirPath) {
+  const files = await fs.readdir(dirPath);
+
+  for (const file of files) {
+    const fullPath = path.join(dirPath, file);
+    const fileStats = await fs.stat(fullPath);
+
+    if (fileStats.isDirectory()) {
+      // 如果是目录，递归调用自身
+      await deleteFolderRecursiveAsync(fullPath);
+    } else if (fileStats.isFile()) {
+      // 如果是文件，删除文件
+      await fs.unlink(fullPath);
+    }
+  }
+
+  // 等待所有异步操作完成后，删除目录自身
+  await fs.rmdir(dirPath);
 }
 module.exports = {
   closeDB,

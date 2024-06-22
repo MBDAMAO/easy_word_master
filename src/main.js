@@ -109,6 +109,12 @@ function createContextMenu(event, settings) {
         event.sender.send("setDefaultSettings", true);
       },
     },
+    {
+      label: "清除缓存",
+      click: () => {
+        cleanTemp();
+      },
+    },
   ];
   const menu = Menu.buildFromTemplate(template);
   menu.popup({ window: BrowserWindow.fromWebContents(event.sender) });

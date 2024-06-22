@@ -11,7 +11,10 @@ ipcMain.on("voice", (event, word) => {
 
   const resource = `resource/temp/youdao_US_${word}.mp3`;
   if (fs.existsSync(resource)) {
-    event.reply("voice-reply", `youdao_US_${word}.mp3`);
+    event.reply("voice-reply", {
+      code: `youdao_US_${word}.mp3`,
+      name: word,
+    });
   } else {
     http.get(url1, ["test"], (resp) => {
       mp3data = [];
@@ -24,7 +27,10 @@ ipcMain.on("voice", (event, word) => {
 
         fs.writeFileSync(resource, mp3);
         console.log("aftersavemp3" + resource);
-        event.reply("voice-reply", `youdao_US_${word}.mp3`);
+        event.reply("voice-reply", {
+          code: `youdao_US_${word}.mp3`,
+          name: word,
+        });
       });
     });
   }
