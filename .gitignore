@@ -3,3 +3,4 @@
 /config/my_settings.json
 **/temp
 /dist
+/.idea

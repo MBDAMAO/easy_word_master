@@ -20,6 +20,7 @@
 ![p4](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/020206.png)
 ![p5](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/020216.png)
 ![p6](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/020231.png)
+
 ## TODO-LIST
 
 1. 导入、导出
@@ -45,23 +46,23 @@ npm start
 
 ## release 版本
 
-待发布...
-
-## 快捷键
-
-| key                   | 功能              |
-| --------------------- | ----------------- |
-| PageUp / ArrowLeft    | 跳转到上一项      |
-| PageDown / ArrowRight | 跳转到下一项      |
-| blank                 | 随机一项          |
-| p                     | 暂停/开始播放     |
-| r                     | 随机播放开启/关闭 |
-| INS                   | 添加到自定义词书  |
-| DEL                   | 从自定义词书删除  |
+不久后发布...
 
 # 使用说明
 
-点击单词可发音，图标为黄则正在网络请求资源，为绿则开始播放
-可能会存在音标和发音不同的状况
-点击序号可打开菜单
-mp3 语音缓存需要在菜单里手动清除
+1. 点击单词可发音，图标为黄则正在网络请求资源，为绿则开始播放
+2. 可能会存在音标和发音不同的状况
+3. 点击序号可打开菜单
+4. mp3 语音缓存需要在菜单里手动清除
+
+## 快捷键
+
+| key                   | 功能        |
+|-----------------------|-----------|
+| PageUp / ArrowLeft    | 跳转到上一项    |
+| PageDown / ArrowRight | 跳转到下一项    |
+| blank                 | 随机一项      |
+| p                     | 暂停/开始播放   |
+| r                     | 随机播放开启/关闭 |
+| INS                   | 添加到自定义词书  |
+| DEL                   | 从自定义词书删除  |

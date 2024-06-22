@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const { ipcMain } = require("electron");
+const path = require("node:path");
 
 ipcMain.on("voice", (event, word) => {
   console.log("ipcmain-recieve-voice");
@@ -9,7 +10,7 @@ ipcMain.on("voice", (event, word) => {
   // 英式
   url2 = `http://dict.youdao.com/dictvoice?type=1&audio=${word}`;
 
-  const resource = `resource/temp/youdao_US_${word}.mp3`;
+  const resource = path.join(__dirname,'..','..','..',`resource/temp/youdao_US_${word}.mp3`);
   if (fs.existsSync(resource)) {
     event.reply("voice-reply", {
       code: `youdao_US_${word}.mp3`,
@@ -24,8 +25,8 @@ ipcMain.on("voice", (event, word) => {
       resp.on("end", () => {
         const mp3 = Buffer.concat(mp3data);
         console.log("beforesavemp3" + resource);
-        if (!fs.existsSync("resource/temp")) {
-          fs.mkdirSync("resource/temp");
+        if (!fs.existsSync(path.join(__dirname,'..','..','..',"resource/temp"))) {
+          fs.mkdirSync(path.join(__dirname,'..','..','..',"resource/temp"));
         }
         fs.writeFileSync(resource, mp3);
         console.log("aftersavemp3" + resource);

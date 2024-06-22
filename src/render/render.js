@@ -14,7 +14,7 @@ let docItems = {
   voice: document.getElementById("voice"),
   switch: document.getElementById("switch"),
 };
-window.versions.loadSettings().then((data) => {
+window.commonAPI.loadSettings().then((data) => {
   // console.log("loadSettings:", JSON.stringify(data, null, 2));
   settings = data;
   console.log("loadDict:", settings.selected_book);
@@ -44,46 +44,50 @@ window.resourceAPI.onGetWord(async (data) => {
     voice();
   }
   settings.history[dict.name].last_location = index;
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
 window.resourceAPI.beforeUpdataSelectedBook((data) => {
   console.log("beforeUpdataSelectedBook:", data);
   settings.selected_book = data;
   index = settings.history[data].last_location;
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
   window.resourceAPI.loadDict(data);
 });
-window.versions.onrequestconfig(() => {
+window.commonAPI.onrequestconfig(() => {
   settings.history[dict.name].last_location = index;
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
-window.versions.setDefaultSettings(() => {
-  window.versions.setDefaultEvent();
+window.commonAPI.setDefaultSettings(() => {
+  window.commonAPI.setDefaultEvent();
 });
-window.versions.setRandPlay((rand_play) => {
+window.commonAPI.setRandPlay((rand_play) => {
   settings.order_play = rand_play;
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
-window.versions.setAutoPlay((auto_play) => {
+window.commonAPI.setAutoVoice((auto_voice) => {
+  settings.auto_voice = auto_voice;
+  window.commonAPI.saveSettings(settings);
+});
+window.commonAPI.setAutoPlay((auto_play) => {
   settings.auto_play = auto_play;
   if (!auto_play) {
     clearInterval(intervalId);
   } else {
     setTimer(settings.delay_time);
   }
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
-window.versions.updateDelayTime((delay_time) => {
+window.commonAPI.updateDelayTime((delay_time) => {
   settings.delay_time = delay_time;
   if (settings.auto_play) {
     setTimer(settings.delay_time);
   }
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
-window.versions.updateTheme((theme) => {
+window.commonAPI.updateTheme((theme) => {
   settings.theme = theme;
   loadTheme(settings.themes[theme]);
-  window.versions.saveSettings(settings);
+  window.commonAPI.saveSettings(settings);
 });
 // 快捷键映射
 document.addEventListener("keydown", function (event) {
@@ -110,10 +114,10 @@ document.addEventListener("keydown", function (event) {
     } else {
       setTimer(settings.delay_time);
     }
-    window.versions.saveSettings(settings);
+    window.commonAPI.saveSettings(settings);
   } else if (event.key === "r") {
     settings.order_play = !settings.order_play;
-    window.versions.saveSettings(settings);
+    window.commonAPI.saveSettings(settings);
   }
 });
 function loadTheme(theme) {
@@ -137,6 +141,11 @@ function loadTheme(theme) {
   } else {
     docItems.translate.style.color = theme.font_color;
   }
+  if (theme.other) {
+    for (let key in theme.other) {
+      document.getElementById("backg").setAttribute(key, theme.other[key]);
+    }
+  }
 }
 function setTimer(delay_time) {
   clearInterval(intervalId);
@@ -151,7 +160,7 @@ function setTimer(delay_time) {
 function update() {
   window.resourceAPI.getWord({ dict: dict.code, id: index + 1 });
 }
-window.versions.onGetvoice(async (data) => {
+window.commonAPI.onGetVoice(async (data) => {
   if (data.name != word.name) return;
   if (audio.src != `../resource/temp/${data.code}`) {
     audio.src = `../resource/temp/${data.code}`;
@@ -192,7 +201,7 @@ function next() {
 function voice() {
   docItems.icon.setAttribute("fill", "orange");
   console.log("voice");
-  window.versions.voice(word.name);
+  window.commonAPI.voice(word.name);
 }
 
 function getRandomIntInclusive(min, max) {
@@ -201,9 +210,9 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function openMenu() {
-  window.versions.createMenu(settings);
+  window.commonAPI.createMenu(settings);
 }
 window.addEventListener("contextmenu", (e) => {
   e.preventDefault(); // 阻止默认上下文菜单
-  window.versions.createMenu(settings);
+  window.commonAPI.createMenu(settings);
 });

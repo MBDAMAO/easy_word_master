@@ -18,7 +18,7 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: black;
+    /*background-color: black;*/
     z-index: -10;
     border-radius: 10px;
 }

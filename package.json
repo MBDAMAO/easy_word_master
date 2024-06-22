@@ -10,6 +10,14 @@
     "make": "electron-forge make",
     "pack": "electron-builder --dir"
   },
+  "build" : {
+    "productName": "easy_en_words",
+    "appId": "easy_en_words",
+    "asar": "false",
+    "files": [
+      "config", "resource", "src", "package.json"
+    ]
+  },
   "author": "damao",
   "license": "ISC",
   "devDependencies": {

@@ -3,7 +3,7 @@ const path = require("node:path");
 const { ipcMain, ipcRenderer } = require("electron");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(
-  "resource/word.db",
+    path.join(__dirname,'..','..',"resource/word.db"),
   sqlite3.OPEN_READWRITE,
   (err) => {
     if (err) {
@@ -32,7 +32,7 @@ function closeDB() {
 }
 function setDefault() {
   try {
-    const data = fs.readFileSync("config\\default.json", "utf-8");
+    const data = fs.readFileSync(path.join(__dirname,'..','..',"config\\default.json"), "utf-8");
     const jsonData = JSON.parse(data);
     saveUserSettings(jsonData);
   } catch (error) {
@@ -41,7 +41,7 @@ function setDefault() {
 }
 function loadUserSettings() {
   try {
-    const data = fs.readFileSync("config\\my_settings.json", "utf-8");
+    const data = fs.readFileSync(path.join(__dirname,'..','..',"config/my_settings.json"), "utf-8");
     const jsonData = JSON.parse(data);
     return jsonData;
   } catch (error) {
@@ -51,7 +51,7 @@ function loadUserSettings() {
 function saveUserSettings(settings) {
   try {
     let writeIn = JSON.stringify(settings, null, 2);
-    fs.writeFileSync("config\\my_settings.json", writeIn, "utf-8");
+    fs.writeFileSync(path.join(__dirname,'..','..',"config\\my_settings.json"), writeIn, "utf-8");
   } catch (error) {
     console.error("Error write the file:", error);
   }

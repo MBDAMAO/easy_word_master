@@ -1,8 +1,10 @@
 const { app, BrowserWindow, ipcMain, Menu } = require("electron");
 require("./speak/youdao_voice/youdao_voice");
 const path = require("node:path");
+// const { setDesktopBlur } = require('./win.js');
 const { closeDB, cleanTemp } = require("./resource/load");
 const createWindow = () => {
+  // setDesktopBlur(true)
   const win = new BrowserWindow({
     width: 300,
     height: 76,
@@ -12,6 +14,7 @@ const createWindow = () => {
     alwaysOnTop: true,
     transparent: true,
     webPreferences: {
+      experimentalFeatures: true,
       // nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
     },
@@ -21,7 +24,10 @@ const createWindow = () => {
     console.log("close!");
     win.webContents.send("request-config");
   });
-  win.loadFile("src/index.html");
+
+
+
+  win.loadFile(path.join(__dirname, "index.html"));
   win.setAspectRatio(300 / 76);
   win.webContents.on("console-message", (level, message, line, sourceId) => {
     console.log(
@@ -82,6 +88,14 @@ function createContextMenu(event, settings) {
       checked: !settings.order_play,
       click: () => {
         event.sender.send("setRandPlay", !settings.order_play);
+      },
+    },
+    {
+      label: "自动朗读",
+      type: "checkbox",
+      checked: settings.auto_voice,
+      click: () => {
+        event.sender.send("setAutoVoice", !settings.auto_voice);
       },
     },
     {
