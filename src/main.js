@@ -1,17 +1,19 @@
-const { app, BrowserWindow, ipcMain, MenuItem, Menu } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu } = require("electron");
+require("./speak/youdao_voice/youdao_voice");
 const path = require("node:path");
 const {
   setDefault,
-  loadDict,
   saveUserSettings,
   loadUserSettings,
-} = require("./load");
+  closeDB,
+  cleanTemp,
+} = require("./resource/load");
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 300,
     height: 76,
-    // minHeight: 76,
-    // minWidth: 300,
+    minHeight: 76,
+    minWidth: 300,
     frame: false,
     alwaysOnTop: true,
     transparent: true,
@@ -25,12 +27,17 @@ const createWindow = () => {
     console.log("close!");
     win.webContents.send("request-config");
   });
-  win.loadFile("index.html");
+  win.loadFile("src/index.html");
   win.setAspectRatio(300 / 76);
   //隐藏顶部菜单
   // win.setMenu(null);
   // loadUserSettings();
   // loadDict();
+  win.webContents.on("console-message", (level, message, line, sourceId) => {
+    console.log(
+      `Render Process Console: ${level}, ${message}, ${line}, ${sourceId}`
+    );
+  });
 };
 function createContextMenu(event, settings) {
   let bookmenu = [];
@@ -106,7 +113,6 @@ function createContextMenu(event, settings) {
   menu.popup({ window: BrowserWindow.fromWebContents(event.sender) });
 }
 app.whenReady().then(() => {
-  ipcMain.handle("ping", () => loadDict());
   ipcMain.handle("loadSettings", () => loadUserSettings());
   ipcMain.on("createMenu", (event, settings) =>
     createContextMenu(event, settings)
@@ -122,11 +128,13 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
-// app.on("before-quit", () => {
-//   const focusedWindow = BrowserWindow.getFocusedWindow();
-//   console.log(focusedWindow);
-//   if (focusedWindow) {
-//     console.log(11);
-//     focusedWindow.webContents.send("request-config");
-//   }
-// });
+app.on("before-quit", () => {
+  closeDB();
+  cleanTemp();
+});
+// const isDevelopment = !app.isPackaged;
+// if (isDevelopment) {
+//   try {
+//     require("electron-reloader")(module);
+//   } catch (err) {}
+// }

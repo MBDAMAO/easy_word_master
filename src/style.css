@@ -6,7 +6,12 @@ body {
     width: 100vw;
     /* min-height: 76px;
     min-width: 300px; */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.audio {
+    height: 100%;
+    width: 100%;
 }
 
 .backg {
@@ -36,6 +41,7 @@ body {
     height: 50%;
     width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 
 .downbox {
@@ -55,26 +61,45 @@ body {
     /* overflow: hidden; */
 }
 
+.left_up {
+    height: 100%;
+    display: flex;
+}
+
+.right_up {
+    height: 100%;
+    width: 20%;
+    display: flex;
+}
+
 .title {
     height: 100%;
-    width: 80%;
     font-size: 35vh;
     align-content: center;
 }
 
+.voice {
+    padding-left: 10vh;
+    height: 100%;
+    font-size: 15vh;
+    align-content: center;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    cursor: pointer;
+}
+
 .switch {
     font-size: 20vh;
-    width: 20%;
+    width: 100%;
     height: 100%;
     display: flex;
 }
 
 .left {
-    justify-items: center;
     display: flex;
     -webkit-app-region: no-drag;
-    align-content: center;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     width: 50%;
     height: 100%;
@@ -82,11 +107,10 @@ body {
 }
 
 .right {
-    align-items: center;
-    justify-items: center;
     display: flex;
     -webkit-app-region: no-drag;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     width: 50%;
     height: 100%;
@@ -145,14 +169,17 @@ body {
 .foot {
     font-size: 15vh;
     height: 100%;
+    -webkit-app-region: no-drag;
     align-content: center;
-    width: 10%;
+    cursor: pointer;
+    user-select: none;
+    width: 20%;
 }
 
 .settings {
     font-size: 15vh;
     height: 100%;
-    width: 10%;
+    width: 20%;
     cursor: pointer;
     -webkit-app-region: no-drag;
     align-content: center;

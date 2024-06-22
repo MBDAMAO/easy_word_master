@@ -30,18 +30,17 @@ window.versions.updateTheme((theme) => {
   loadTheme(settings.themes[theme]);
   window.versions.saveSettings(settings);
 });
-const func = async () => {
-  settings = await window.versions.loadSettings();
-  const response = await window.versions.ping();
-  return response;
-};
-let settings = null;
-let words = null;
 let index = 0;
-func().then((datas) => {
-  words = datas.words;
-  dictname = datas.dictName;
-  index = settings.history[dictname].last_location;
+let settings = null;
+let dict = null;
+let word = null;
+window.versions.loadSettings().then((data) => {
+  settings = data;
+  window.resourceAPI.loadDict();
+});
+window.resourceAPI.onLoadDict((data) => {
+  dict = data;
+  index = settings.history[dict.name].last_location;
   theme = settings.theme;
   themeDetail = settings.themes[theme];
   loadTheme(themeDetail);
@@ -54,6 +53,8 @@ document.addEventListener("keydown", function (event) {
     next();
   } else if (event.key === " ") {
     randomNext();
+  } else if (event.key === "v") {
+    voice();
   } else if (event.key === "p") {
     settings.auto_play = !settings.auto_play;
     if (!settings.auto_play) {
@@ -101,17 +102,27 @@ function setTimer(delay_time) {
   }, delay_time);
 }
 function update() {
-  document.getElementById("title").innerText = words[index].name;
-  document.getElementById("translate").innerText = words[index].trans;
-  document.getElementById("sentence").innerText = words[index].eg;
-  document.getElementById("foot").innerText =
-    "" + (index + 1) + "/" + words.length;
+  window.resourceAPI.getWord({ dict: dict.code, id: index + 1 });
+}
+window.versions.onGetvoice(async (code) => {
+  audio = document.getElementById("audio");
+  audio.src = `../resource/temp/${code}.mp3`;
+  audio.load();
+  audio.play();
+});
+window.resourceAPI.onGetWord(async (data) => {
+  word = data;
+  document.getElementById("title").innerText = word.name;
+  document.getElementById("translate").innerText = word.trans;
+  document.getElementById("sentence").innerText = word.sentence;
+  document.getElementById("foot").innerText = word.code;
+  document.getElementById("voice").innerText = word.voice;
   if (settings.auto_play) {
     setTimer(settings.delay_time);
   }
-  settings.history[dictname].last_location = index;
+  settings.history[dict.name].last_location = index;
   window.versions.saveSettings(settings);
-}
+});
 function prev() {
   if (index <= 0) {
     return;
@@ -120,21 +131,24 @@ function prev() {
   update();
 }
 function randomNext() {
-  let nindex = getRandomIntInclusive(0, words.length - 1);
+  let nindex = getRandomIntInclusive(0, dict.count - 1);
   let counter = 0;
   while (nindex === index && counter <= 10) {
-    nindex = getRandomIntInclusive(0, words.length - 1);
+    nindex = getRandomIntInclusive(0, dict.count - 1);
     counter += 1;
   }
   index = nindex;
   update();
 }
 function next() {
-  if (index >= words.length - 1) {
+  if (index >= dict.count - 1) {
     return;
   }
   index += 1;
   update();
+}
+function voice() {
+  window.versions.voice(word.name);
 }
 function openMenu() {
   window.versions.createMenu(settings);
@@ -146,6 +160,5 @@ function getRandomIntInclusive(min, max) {
 }
 window.addEventListener("contextmenu", (e) => {
   e.preventDefault(); // 阻止默认上下文菜单
-  console.log(11);
   window.versions.createMenu(settings);
 });

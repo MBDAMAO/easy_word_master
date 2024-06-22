@@ -1,0 +1,11 @@
+-- SQLite
+-- CREATE table IF NOT EXISTS dict_info (
+--     ID int PRIMARY key,
+--     name varchar(50),
+--     code varchar(50),
+--     count int
+-- );
+-- insert into dict_info VALUES
+-- (1, '红宝书考研单词','hongbaoshu',6595)
+-- (2, '雅思词汇','yasicihui',6595);
+update dict_info set code = 'word' where id = 1;

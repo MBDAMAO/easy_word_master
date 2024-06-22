@@ -2,7 +2,7 @@
 
 # 技术选型
 
-    electron
+    electron, sqlit3
 
 # 功能&特点
 
@@ -12,16 +12,16 @@
 4. 多种主题样式更换
 5. 单机运行、无需联网、进度自动保存
 6. 快捷键支持
+7. 朗读功能支持
 
 ![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/1.png)
 
 ## TODO-LIST
 
 1. 导入自定义词库
-2. 朗读功能支持
-3. 指定项跳转
-4. JSON 文本读写存取 ——> IndexedDB
-5. NOT JUST WORDS
+2. 指定项跳转
+3. 背单词模式
+4. NOT JUST WORDS
 
 # 使用方式
 
@@ -33,6 +33,10 @@ cd ./easy_word_master
 npm install
 npm start
 ```
+
+### 注意事项
+
+项目依赖 sqlite3, 如果安装失败可检查 win 构建工具是否完整（winSDK 版本选 10）
 
 ## release 版本
 

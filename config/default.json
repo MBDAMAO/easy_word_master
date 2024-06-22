@@ -6,8 +6,8 @@
   "theme": "jetbrains",
   "all_themes": ["dark", "light", "jetbrains", "candy", "blue"],
   "all_delay_time": [7000, 6000, 5000, 4000, 3000, 2000],
-  "selected_book": "测试用词书",
-  "all_books": ["测试用词书", "考研高频词汇", "雅思词汇"],
+  "selected_book": "红宝书考研单词",
+  "all_books": ["红宝书考研单词", "考研高频词汇", "雅思词汇"],
   "themes": {
     "dark": {
       "background_color": "black",
@@ -41,7 +41,7 @@
     }
   },
   "history": {
-    "测试用词书": {
+    "红宝书考研单词": {
       "last_location": 0
     }
   }

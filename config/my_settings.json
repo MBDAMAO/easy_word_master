@@ -1,9 +1,9 @@
 {
   "auto_play": false,
-  "delay_time": 7000,
+  "delay_time": 5000,
   "order_play": true,
   "mode": "simple",
-  "theme": "dark",
+  "theme": "blue",
   "all_themes": [
     "dark",
     "light",
@@ -19,9 +19,9 @@
     3000,
     2000
   ],
-  "selected_book": "测试用词书",
+  "selected_book": "红宝书考研单词",
   "all_books": [
-    "测试用词书",
+    "红宝书考研单词",
     "考研高频词汇",
     "雅思词汇"
   ],
@@ -58,8 +58,8 @@
     }
   },
   "history": {
-    "测试用词书": {
-      "last_location": 6
+    "红宝书考研单词": {
+      "last_location": 3068
     }
   }
 }

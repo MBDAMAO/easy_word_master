@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>easy_word_master</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="backg" id="backg"></div>
+    <div class="container" id="container">
+        <div class="upbox">
+            <div class="left_up">
+                <div class="title" id="title">
+                </div>
+                <div class="voice" id="voice" onclick="voice()">
+                    tr
+                </div>
+            </div>
+            <div class="right_up">
+                <div class="switch" id="switch">
+                    <div class="left" onclick="prev()">
+                        &lt;
+                    </div>
+                    <div class="right" onclick="next()">
+                        &gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=downbox>
+            <div class="info">
+                <div class="translate" id="translate">
+                </div>
+                <div class="sentence">
+                    <span id="sentence"></span>
+                </div>
+            </div>
+            <div class="foot" id="foot" onclick="openMenu()">
+            </div>
+            <!-- <div class="settings" onclick="openMenu()">
+                ⚙
+            </div> -->
+        </div>
+        <audio class="audio" src="../resource/voice.mp3" id="audio"></audio>
+    </div>
+    <script src='./render/render.js'></script>
+</body>
+
+</html>
