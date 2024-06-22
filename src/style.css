@@ -63,6 +63,7 @@ body {
 
 .left_up {
     height: 100%;
+    align-items: center;
     display: flex;
 }
 
@@ -75,7 +76,11 @@ body {
 .title {
     height: 100%;
     font-size: 35vh;
+    white-space: nowrap;
     align-content: center;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    cursor: pointer;
 }
 
 .voice {
@@ -86,6 +91,15 @@ body {
     -webkit-app-region: no-drag;
     user-select: none;
     cursor: pointer;
+    /* white-space: nowrap; */
+}
+
+.icon {
+    height: 40%;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    cursor: pointer;
+    padding-left: 5vh;
 }
 
 .switch {
@@ -120,13 +134,13 @@ body {
 .translate {
     align-content: center;
     height: 50%;
-    font-size: 12vh;
+    font-size: 12.5vh;
 }
 
 .sentence {
     align-items: center;
     height: 50%;
-    font-size: 16vh;
+    font-size: 15vh;
     /* -webkit-app-region: no-drag; */
     width: 100%;
     overflow: hidden;
@@ -167,7 +181,7 @@ body {
 
 
 .foot {
-    font-size: 15vh;
+    font-size: 13vh;
     height: 100%;
     -webkit-app-region: no-drag;
     align-content: center;

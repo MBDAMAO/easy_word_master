@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu } = require("electron");
 require("./speak/youdao_voice/youdao_voice");
 const path = require("node:path");
+const { argv } = require("node:process");
 const {
   setDefault,
   saveUserSettings,
@@ -12,8 +13,8 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 300,
     height: 76,
-    minHeight: 76,
-    minWidth: 300,
+    // minHeight: 76,
+    // minWidth: 300,
     frame: false,
     alwaysOnTop: true,
     transparent: true,
