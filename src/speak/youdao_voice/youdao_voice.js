@@ -16,7 +16,7 @@ ipcMain.on("voice", (event, word) => {
       name: word,
     });
   } else {
-    http.get(url1, ["test"], (resp) => {
+    http.get(url1, [], (resp) => {
       mp3data = [];
       resp.on("data", (chunk) => {
         mp3data.push(chunk);
@@ -24,7 +24,9 @@ ipcMain.on("voice", (event, word) => {
       resp.on("end", () => {
         const mp3 = Buffer.concat(mp3data);
         console.log("beforesavemp3" + resource);
-
+        if (!fs.existsSync("resource/temp")) {
+          fs.mkdirSync("resource/temp");
+        }
         fs.writeFileSync(resource, mp3);
         console.log("aftersavemp3" + resource);
         event.reply("voice-reply", {

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("node:path");
 const { ipcMain, ipcRenderer } = require("electron");
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database(
@@ -56,26 +57,16 @@ function saveUserSettings(settings) {
   }
 }
 function cleanTemp() {
-  deleteFolderRecursiveAsync("resource/temp");
-}
-async function deleteFolderRecursiveAsync(dirPath) {
-  const files = await fs.readdir(dirPath);
-
-  for (const file of files) {
-    const fullPath = path.join(dirPath, file);
-    const fileStats = await fs.stat(fullPath);
-
-    if (fileStats.isDirectory()) {
-      // 如果是目录，递归调用自身
-      await deleteFolderRecursiveAsync(fullPath);
-    } else if (fileStats.isFile()) {
-      // 如果是文件，删除文件
-      await fs.unlink(fullPath);
+  console.log("手动清除缓存音频！\n");
+  dirPath = "resource\\temp";
+  fs.readdir(dirPath, (err, files) => {
+    if (err) return;
+    for (const file of files) {
+      const fullPath = path.join(dirPath, file);
+      fs.unlinkSync(fullPath);
     }
-  }
-
-  // 等待所有异步操作完成后，删除目录自身
-  await fs.rmdir(dirPath);
+    fs.rmdirSync(dirPath);
+  });
 }
 module.exports = {
   closeDB,

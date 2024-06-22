@@ -3,7 +3,7 @@
   "delay_time": 5000,
   "order_play": true,
   "mode": "simple",
-  "theme": "light",
+  "theme": "dark",
   "all_themes": [
     "dark",
     "light",
@@ -59,7 +59,7 @@
   },
   "history": {
     "红宝书考研单词": {
-      "last_location": 5795
+      "last_location": 5800
     }
   }
 }
