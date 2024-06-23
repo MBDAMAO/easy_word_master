@@ -3,7 +3,7 @@ function saveword(postData) {
   http.postJson(url, postData);
 }
 let arr = [];
-let times = 10000;
+let times = 10001;
 while (times--) {
   let code = id("tv_learn_status").findOne().text();
   let word = id("tv_word").findOne().text();

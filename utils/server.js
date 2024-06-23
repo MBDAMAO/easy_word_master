@@ -12,7 +12,7 @@ let db = new sqlite3.Database(
   }
 );
 let stmt = db.prepare(
-  "INSERT INTO tuofu1 (code, name, voice, trans, sentence) VALUES (?, ?, ?, ?, ?)"
+  "INSERT INTO gre1 (code, name, voice, trans, sentence) VALUES (?, ?, ?, ?, ?)"
 );
 function INSERT_WORD(code, name, voice, trans, sentence) {
   stmt.run([code, name, voice, trans, sentence], [], (err) => {

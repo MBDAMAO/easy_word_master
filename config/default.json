@@ -4,11 +4,31 @@
   "auto_voice": false,
   "order_play": true,
   "mode": "simple",
-  "theme": "jetbrains",
-  "all_themes": ["dark", "light", "jetbrains", "candy", "blue","transparent"],
-  "all_delay_time": [7000, 6000, 5000, 4000, 3000, 2000],
+  "theme": "dark",
+  "all_themes": [
+    "dark",
+    "light",
+    "jetbrains",
+    "candy",
+    "blue",
+    "transparent"
+  ],
+  "all_delay_time": [
+    7000,
+    6000,
+    5000,
+    4000,
+    3000,
+    2000
+  ],
   "selected_book": "红宝书考研单词",
-  "all_books": ["红宝书考研单词", "托福词汇", "雅思词汇"],
+  "all_books": [
+    "红宝书考研单词",
+    "托福词汇",
+    "雅思词汇",
+    "SAT10000",
+    "GRE词汇精选"
+  ],
   "themes": {
     "dark": {
       "background_color": "black",
@@ -41,7 +61,7 @@
       "trans_color": "#eeeeee"
     },
     "transparent": {
-      "background_color" : "rgba(255, 255, 255, 0)",
+      "background_color": "rgba(255, 255, 255, 0)",
       "font_color": "black",
       "sentence_color": "black",
       "control_color": "black",
@@ -56,6 +76,12 @@
       "last_location": 0
     },
     "雅思词汇": {
+      "last_location": 0
+    },
+    "SAT10000": {
+      "last_location": 0
+    },
+    "GRE词汇精选": {
       "last_location": 0
     }
   }
