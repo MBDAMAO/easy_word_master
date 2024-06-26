@@ -14,7 +14,7 @@
 6. 快捷键支持
 7. 朗读功能支持
 
-![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/020147.png)
+![p1](https://github.com/MBDAMAO/easy_word_master/blob/master/doc/m1.png)
 
 ## TODO-LIST
 
