@@ -8,6 +8,7 @@ contextBridge.exposeInMainWorld("commonAPI", {
         ipcRenderer.on("voice-reply", (_event, value) => callback(value)),
 
     saveSettings: (value) => ipcRenderer.send("saveSettings", value),
+    likeWord: (value) => ipcRenderer.send("likeWord", value),
     createMenu: (value) => ipcRenderer.send("createMenu", value),
 
     onrequestconfig: (callback) =>

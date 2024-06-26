@@ -27,7 +27,8 @@
     "托福词汇",
     "雅思词汇",
     "SAT10000",
-    "GRE词汇精选"
+    "GRE词汇精选",
+    "单词收藏本"
   ],
   "themes": {
     "dark": {
@@ -82,6 +83,9 @@
       "last_location": 0
     },
     "GRE词汇精选": {
+      "last_location": 0
+    },
+    "单词收藏本": {
       "last_location": 0
     }
   }
