@@ -41,7 +41,7 @@ npm start
 
 ## release 版本
 
-不久后发布...
+v1
 
 # 使用说明
 
