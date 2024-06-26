@@ -21,13 +21,14 @@
     3000,
     2000
   ],
-  "selected_book": "托福词汇",
+  "selected_book": "红宝书考研单词",
   "all_books": [
     "红宝书考研单词",
     "托福词汇",
     "雅思词汇",
     "SAT10000",
-    "GRE词汇精选"
+    "GRE词汇精选",
+    "单词收藏本"
   ],
   "themes": {
     "dark": {
@@ -70,10 +71,10 @@
   },
   "history": {
     "红宝书考研单词": {
-      "last_location": 7
+      "last_location": 127
     },
     "托福词汇": {
-      "last_location": 2
+      "last_location": 115
     },
     "雅思词汇": {
       "last_location": 0
@@ -82,6 +83,9 @@
       "last_location": 0
     },
     "GRE词汇精选": {
+      "last_location": 0
+    },
+    "单词收藏本": {
       "last_location": 0
     }
   }
