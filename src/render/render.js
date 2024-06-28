@@ -13,6 +13,7 @@ let docItems = {
     foot: document.getElementById("foot"),
     voice: document.getElementById("voice"),
     switch: document.getElementById("switch"),
+    coverage: document.getElementById("coverage"),
 };
 const isSaved = document.getElementById("isSaved")
 window.commonAPI.loadSettings().then((data) => {
@@ -34,6 +35,11 @@ window.resourceAPI.onGetWord(async (data) => {
         isSaved.setAttribute("fill", "rgb(242,197,92)")
     } else {
         isSaved.setAttribute("fill", "grey")
+    }
+    if (settings.hidden_trans) {
+        docItems.coverage.style.display = 'flex';
+    } else {
+        docItems.coverage.style.display = 'none';
     }
     docItems.icon.setAttribute("fill", "red");
     docItems.title.innerText = word.name;
@@ -110,6 +116,8 @@ document.addEventListener("keydown", function (event) {
         randomNext();
     } else if (event.key === "s") {
         save();
+    } else if (event.key === "q") {
+        uncover();
     } else if (event.key === "v") {
         voice();
     } else if (event.key === "p") {
@@ -125,7 +133,10 @@ document.addEventListener("keydown", function (event) {
         window.commonAPI.saveSettings(settings);
     }
 });
-
+function uncover() {
+    console.log("取消隐藏释义")
+    docItems.coverage.style.display = 'none';
+}
 function loadTheme(theme) {
     var div = document.getElementById("container");
     document.getElementById("backg").style.backgroundColor =

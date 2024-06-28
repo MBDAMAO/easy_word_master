@@ -28,9 +28,9 @@ const createWindow = () => {
 
     win.loadFile(path.join(__dirname, "index.html"));
     win.setAspectRatio(300 / 76);
-    // win.webContents.on("console-message", (level, message, line, sourceId) => {
-    //     console.log(`Render Process Console: ${line}`);
-    // });
+    win.webContents.on("console-message", (level, message, line, sourceId) => {
+        console.log(`Render Process Console: ${line}`);
+    });
 };
 
 function createContextMenu(event, settings) {
@@ -114,6 +114,12 @@ function createContextMenu(event, settings) {
             label: "清除缓存",
             click: () => {
                 cleanTemp();
+            },
+        },
+        {
+            label: "隐藏释义",
+            click: () => {
+
             },
         },
     ];

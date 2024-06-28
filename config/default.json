@@ -3,6 +3,7 @@
   "delay_time": 5000,
   "auto_voice": false,
   "order_play": true,
+  "hidden_trans": true,
   "mode": "simple",
   "theme": "dark",
   "all_themes": [

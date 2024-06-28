@@ -41,6 +41,7 @@ body {
 }
 
 .downbox {
+    position: relative;
     height: 50%;
     width: 100%;
     display: flex;
@@ -53,9 +54,24 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 0px 5px 0px 0px;
+    padding: 0 5px 0 0;
 }
-
+.coverage {
+    z-index: 9;
+    height: 100%;
+    width: 80%;
+    background-color: black;
+    font-size: 20vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-app-region: no-drag;
+    user-select: none;
+}
+.tip:hover {
+    cursor: pointer;
+}
 .left_up {
     height: 100%;
     align-items: center;
