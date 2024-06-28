@@ -28,9 +28,9 @@ const createWindow = () => {
 
     win.loadFile(path.join(__dirname, "index.html"));
     win.setAspectRatio(300 / 76);
-    win.webContents.on("console-message", (level, message, line, sourceId) => {
-        console.log(`Render Process Console: ${line}`);
-    });
+    // win.webContents.on("console-message", (level, message, line, sourceId) => {
+    //     console.log(`Render Process Console: ${line}`);
+    // });
 };
 
 function createContextMenu(event, settings) {
@@ -41,7 +41,7 @@ function createContextMenu(event, settings) {
         thememenu.push({
             label: "" + item,
             type: "radio",
-            checked: settings.theme == item,
+            checked: settings.theme === item,
             click: () => {
                 event.sender.send("update_theme", item);
             },
@@ -51,7 +51,7 @@ function createContextMenu(event, settings) {
         delaymenu.push({
             label: "" + item,
             type: "radio",
-            checked: settings.delay_time == item,
+            checked: settings.delay_time === item,
             click: () => {
                 event.sender.send("update_delay_time", item);
             },
@@ -61,7 +61,7 @@ function createContextMenu(event, settings) {
         bookmenu.push({
             label: item,
             type: "radio",
-            checked: settings.selected_book == item,
+            checked: settings.selected_book === item,
             click: () => {
                 event.sender.send("update_selected_book", item);
             },

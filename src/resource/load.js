@@ -9,36 +9,22 @@ const db = new sqlite3.Database(
         if (err) {
             console.error(err.message);
         }
-        console.log("数据库连接成功\n");
+        console.log("数据库连接成功");
     }
 );
-
-// function getWord(dict, id, prev) {
-//     if (dict !== "saved_words") {
-//         db.each(`select * from ${dict} where id = ${id}`, function (err, row) {
-//             if (err) {
-//                 console.error(err.message);
-//                 throw err;
-//             } else {
-//                 return row;
-//             }
-//         });
-//     } else {
-//
-//     }
-// }
 
 function closeDB() {
     db.close((err) => {
         if (err) {
             return console.error(err.message);
         }
-        console.log("数据库连接已关闭\n");
+        console.log("数据库连接已关闭");
     });
 }
 
 function setDefault() {
     try {
+        console.log("恢复默认配置");
         const data = fs.readFileSync(path.join(__dirname, '..', '..', "config\\default.json"), "utf-8");
         const jsonData = JSON.parse(data);
         saveUserSettings(jsonData);
@@ -49,15 +35,16 @@ function setDefault() {
 
 function loadUserSettings() {
     try {
+        console.log("加载用户配置");
         const data = fs.readFileSync(path.join(__dirname, '..', '..', "config/my_settings.json"), "utf-8");
-        const jsonData = JSON.parse(data);
-        return jsonData;
+        return JSON.parse(data);
     } catch (error) {
         console.error("Error reading the file:", error);
     }
 }
 
 function saveUserSettings(settings) {
+    console.log("保存用户配置");
     try {
         let writeIn = JSON.stringify(settings, null, 2);
         fs.writeFileSync(path.join(__dirname, '..', '..', "config\\my_settings.json"), writeIn, "utf-8");
@@ -67,7 +54,8 @@ function saveUserSettings(settings) {
 }
 
 function cleanTemp() {
-    dirPath = "resource\\temp";
+    console.log("手动清理缓存");
+    let dirPath = "resource\\temp";
     fs.readdir(dirPath, (err, files) => {
         if (err) return;
         for (const file of files) {
@@ -83,6 +71,7 @@ function likeWord(data) {
     let word = data.word;
     let status = data.status;
     if (status === true) {
+        console.log(`收藏单词:${data.word.name}`);
         db.each(
             `insert into saved_words(name,code,sentence,trans,voice,create_time,dict_name,dict_code,foreignId) values('${word.name}','${word.code}',
                 '${word.sentence.replace("'","''")}','${word.trans}','${word.voice.replace("'",'\'\'')}',
@@ -96,6 +85,7 @@ function likeWord(data) {
             }
         );
     } else {
+        console.log(`取消收藏单词:${data.word.name}`);
         db.each(
             `delete from saved_words where name = '${word.name}'`,
             function (err, row) {
@@ -112,11 +102,11 @@ function likeWord(data) {
 
 module.exports = {
     closeDB,
-    // getWord,
     cleanTemp,
 };
 // 获取词书信息
 ipcMain.on("loadDict", (event, dictName) => {
+    console.log(`获取词书信息:${dictName}`);
     db.each(
         `select * from dict_info where name = '${dictName}'`,
         function (err, row) {
@@ -131,6 +121,7 @@ ipcMain.on("loadDict", (event, dictName) => {
 });
 // 根据词书和id获取单个单词
 ipcMain.on("getWord", (event, data) => {
+    console.log(`获取单词信息:[DICT:${data.dict}]`);
     if (data.dict !== "saved_words") {
         db.each(
             `select * from ${data.dict} where id = ${data.id}`,

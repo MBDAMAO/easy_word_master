@@ -172,8 +172,8 @@ function update(op) {
 }
 
 window.commonAPI.onGetVoice(async (data) => {
-    if (data.name != word.name) return;
-    if (audio.src != `../resource/temp/${data.code}`) {
+    if (data.name !== word.name) return;
+    if (audio.src !== `../resource/temp/${data.code}`) {
         audio.src = `../resource/temp/${data.code}`;
         audio.load();
     }
