@@ -73,6 +73,10 @@ window.commonAPI.setRandPlay((rand_play) => {
     settings.order_play = rand_play;
     window.commonAPI.saveSettings(settings);
 });
+window.commonAPI.setHidden((bHidden) => {
+    settings.hidden_trans = bHidden;
+    window.commonAPI.saveSettings(settings)
+})
 window.commonAPI.setAutoVoice((auto_voice) => {
     settings.auto_voice = auto_voice;
     window.commonAPI.saveSettings(settings);

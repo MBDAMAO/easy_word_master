@@ -55,12 +55,13 @@ body {
     flex-direction: column;
     box-sizing: border-box;
     padding: 0 5px 0 0;
+    overflow: hidden;
 }
 .coverage {
     z-index: 9;
     height: 100%;
     width: 80%;
-    background-color: black;
+    background: black;
     font-size: 20vh;
     position: absolute;
     display: flex;
@@ -68,6 +69,43 @@ body {
     justify-content: center;
     -webkit-app-region: no-drag;
     user-select: none;
+}
+.choose{
+    z-index: -99;
+    height: 100%;
+    width: 80%;
+    background-color: black ;
+    font-size: 20vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+.noting {
+    width: 60vh;
+}
+.yes {
+    height: 30vh;
+    width: 70px;
+    background: #2d481f;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #85ce61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.no {
+    height: 30vh;
+    width: 70px;
+    background: #582e2e;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f78989;
 }
 .tip:hover {
     cursor: pointer;

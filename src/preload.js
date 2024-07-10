@@ -23,6 +23,8 @@ contextBridge.exposeInMainWorld("commonAPI", {
         ipcRenderer.on("setRandPlay", (_event, value) => callback(value)),
     setAutoVoice: (callback) =>
         ipcRenderer.on("setAutoVoice", (_event, value) => callback(value)),
+    setHidden: (callback) =>
+        ipcRenderer.on("setHidden", (_event, value) => callback(value)),
 
     setDefaultSettings: (callback) =>
         ipcRenderer.on("setDefaultSettings", (_event, value) => callback(value)),

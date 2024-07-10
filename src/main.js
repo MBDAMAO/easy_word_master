@@ -118,8 +118,10 @@ function createContextMenu(event, settings) {
         },
         {
             label: "隐藏释义",
+            type: "checkbox",
+            checked: settings.hidden_trans,
             click: () => {
-
+                event.sender.send("setHidden", !settings.hidden_trans);
             },
         },
     ];
@@ -139,9 +141,9 @@ app.on("window-all-closed", () => {
 app.on("before-quit", () => {
     closeDB();
 });
-// const isDevelopment = !app.isPackaged;
-// if (isDevelopment) {
-//   try {
-//     require("electron-reloader")(module);
-//   } catch (err) {}
-// }
+const isDevelopment = !app.isPackaged;
+if (isDevelopment) {
+  try {
+    require("electron-reloader")(module);
+  } catch (err) {}
+}

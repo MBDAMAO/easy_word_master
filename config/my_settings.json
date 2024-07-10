@@ -71,10 +71,10 @@
   },
   "history": {
     "红宝书考研单词": {
-      "last_location": 127
+      "last_location": 1365
     },
     "托福词汇": {
-      "last_location": 115
+      "last_location": 150
     },
     "雅思词汇": {
       "last_location": 0
@@ -88,5 +88,6 @@
     "单词收藏本": {
       "last_location": 0
     }
-  }
+  },
+  "hidden_trans": false
 }
