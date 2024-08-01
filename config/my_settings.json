@@ -1,6 +1,6 @@
 {
   "auto_play": false,
-  "delay_time": 5000,
+  "delay_time": 7000,
   "auto_voice": false,
   "order_play": true,
   "mode": "simple",
@@ -71,10 +71,10 @@
   },
   "history": {
     "红宝书考研单词": {
-      "last_location": 1365
+      "last_location": 6004
     },
     "托福词汇": {
-      "last_location": 150
+      "last_location": 154
     },
     "雅思词汇": {
       "last_location": 0

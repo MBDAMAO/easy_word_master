@@ -8,56 +8,58 @@
 </head>
 
 <body>
-<div class="backg" id="backg"></div>
-<div class="container" id="container">
-    <div class="upbox">
-        <div class="left_up">
-            <div class="title" id="title" onclick="voice()">
-            </div>
-            <div class="voice" id="voice" onclick="voice()">
-            </div>
-            <svg fill="red" class="icon" viewBox="0 0 1024 1024"
-                 xmlns="http://www.w3.org/2000/svg" onclick="voice()" id="icon">
-                <path id="icon_color"
-                      d="M640 101.632v629.952l-85.333333-42.666667V239.68L266.069333 384H128v256h138.069333l98.858667 49.450667L640 826.986667v95.381333L245.952 725.333333H42.666667V298.666667h203.242666L640 101.632z m272.938667 140.245333a385.706667 385.706667 0 0 1 43.669333 52.778667A382.378667 382.378667 0 0 1 1024 512c0 78.656-23.744 153.877333-67.392 217.344a385.6 385.6 0 0 1-35.754667 44.522667l-7.914666 8.256-60.650667-60.032a300.373333 300.373333 0 0 0 34.005333-41.088A297.045333 297.045333 0 0 0 938.666667 512a297.045333 297.045333 0 0 0-78.997334-202.368l-7.381333-7.722667 60.650667-60.032z m-121.301334 120.064A212.522667 212.522667 0 0 1 853.333333 512a212.522667 212.522667 0 0 1-56.448 144.554667l-5.248 5.504-60.650666-60.032A127.189333 127.189333 0 0 0 768 512a127.189333 127.189333 0 0 0-33.066667-85.866667l-3.946666-4.16 60.650666-60.032z"
-                ></path>
-            </svg>
-            <svg class="icon" fill="grey" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" onclick="save()">
-                <path id="isSaved"
-                      d="M1018.06317 383.1148a97.161305 97.161305 0 0 0-78.700657-66.555494l-233.187133-35.463877-104.448403-222.013582a97.161305 97.161305 0 0 0-178.776802 0L318.987578 281.095429l-233.187133 35.463877A97.161305 97.161305 0 0 0 29.932695 483.190944l171.489704 175.861963-40.321942 248.247135a97.161305 97.161305 0 0 0 97.161305 114.65034 97.161305 97.161305 0 0 0 48.580653-12.630969l205.981967-113.678728 205.981967 114.164534a97.161305 97.161305 0 0 0 145.741958-102.505177l-40.321941-248.247135 171.003897-175.861963a97.161305 97.161305 0 0 0 22.832907-100.076144z"
-                ></path>
-            </svg>
-        </div>
-        <div class="right_up">
-            <div class="switch" id="switch">
-                <div class="left" onclick="prev()">
-                    &lt;
+    <div class="backg" id="backg"></div>
+    <div class="container" id="container">
+        <div class="upbox">
+            <div class="left_up">
+                <div class="title" id="title" onclick="voice()">
                 </div>
-                <div class="right" onclick="next()">
-                    &gt;
+                <div class="voice" id="voice" onclick="voice()">
+                </div>
+                <svg fill="red" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                    onclick="voice()" id="icon">
+                    <path id="icon_color"
+                        d="M640 101.632v629.952l-85.333333-42.666667V239.68L266.069333 384H128v256h138.069333l98.858667 49.450667L640 826.986667v95.381333L245.952 725.333333H42.666667V298.666667h203.242666L640 101.632z m272.938667 140.245333a385.706667 385.706667 0 0 1 43.669333 52.778667A382.378667 382.378667 0 0 1 1024 512c0 78.656-23.744 153.877333-67.392 217.344a385.6 385.6 0 0 1-35.754667 44.522667l-7.914666 8.256-60.650667-60.032a300.373333 300.373333 0 0 0 34.005333-41.088A297.045333 297.045333 0 0 0 938.666667 512a297.045333 297.045333 0 0 0-78.997334-202.368l-7.381333-7.722667 60.650667-60.032z m-121.301334 120.064A212.522667 212.522667 0 0 1 853.333333 512a212.522667 212.522667 0 0 1-56.448 144.554667l-5.248 5.504-60.650666-60.032A127.189333 127.189333 0 0 0 768 512a127.189333 127.189333 0 0 0-33.066667-85.866667l-3.946666-4.16 60.650666-60.032z">
+                    </path>
+                </svg>
+                <svg class="icon" fill="grey" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                    onclick="save()">
+                    <path id="isSaved"
+                        d="M1018.06317 383.1148a97.161305 97.161305 0 0 0-78.700657-66.555494l-233.187133-35.463877-104.448403-222.013582a97.161305 97.161305 0 0 0-178.776802 0L318.987578 281.095429l-233.187133 35.463877A97.161305 97.161305 0 0 0 29.932695 483.190944l171.489704 175.861963-40.321942 248.247135a97.161305 97.161305 0 0 0 97.161305 114.65034 97.161305 97.161305 0 0 0 48.580653-12.630969l205.981967-113.678728 205.981967 114.164534a97.161305 97.161305 0 0 0 145.741958-102.505177l-40.321941-248.247135 171.003897-175.861963a97.161305 97.161305 0 0 0 22.832907-100.076144z">
+                    </path>
+                </svg>
+            </div>
+            <div class="right_up">
+                <div class="switch" id="switch">
+                    <div class="left" onclick="prev()">
+                        &lt;
+                    </div>
+                    <div class="right" onclick="next()">
+                        &gt;
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="downbox">
-        <div class="coverage" id="coverage" >
-            <span class="tip" onclick="uncover()">Click to show detail</span>
-        </div>
-        <div class="choose" id="choose" >
-            <div class="yes">yes</div>
-            <div class="noting"></div>
-            <div class="no">no</div>
-        </div>
-        <div class="info">
-            <div class="translate" id="translate"></div>
-            <div class="sentence">
-                <span id="sentence"></span>
+        <div class="downbox">
+            <div class="coverage" id="coverage">
+                <span class="tip" onclick="uncover()">Click to show detail</span>
             </div>
+            <div class="choose" id="choose">
+                <div class="yes">yes</div>
+                <div class="noting"></div>
+                <div class="no">no</div>
+            </div>
+            <div class="info">
+                <div class="translate" id="translate"></div>
+                <div class="sentence">
+                    <span id="sentence"></span>
+                </div>
+            </div>
+            <div class="foot" id="foot" onclick="openMenu()"></div>
         </div>
-        <div class="foot" id="foot" onclick="openMenu()"></div>
+        <audio class="audio" id="audio"></audio>
     </div>
-    <audio class="audio" id="audio"></audio>
-</div>
-<script src='render/render.js'></script>
+    <script src='render/render.js'></script>
 </body>
+
 </html>
